@@ -1,1 +1,138 @@
 
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+
+    background: linear-gradient(45deg, #8460ed, #ff1252);
+}
+
+
+.container {
+    margin-bottom: 150px;
+}
+
+h1 {
+    font-size: 3em;
+    color: lightskyblue;
+}
+
+h1 span {
+    font-size: 1.5em;
+    color: lightsalmon;
+}
+
+
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    width: 200px;
+    height: 200px;
+}
+
+.menu li {
+   
+    position: absolute;  
+    left: 0;  
+   
+    list-style: none;
+
+    transform-origin: 100px;  
+    transform: rotate(0deg) translateX(80px); 
+
+    transition: .5s;
+    transition-delay: calc(.1s * var(--i)); /* Para que al mostrarse y esconderse tarde cada uno proporcionalmente un poco más */
+}
+
+.menu.active li {
+    /* Distribuye los <li> de forma circular */
+    transform: rotate(calc(360deg / 8 * var(--i))); /* 8 <li> cada uno con sus grados de giro */
+}
+
+.menu li a {
+    display: flex; /* Para alinear en el centro el icono de cada círculo. */
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;                         
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #8460ed;
+    color: yellow;
+
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .15);
+
+    /* Para que el icono esté derecho dentro de cada <a>, en lugar de estar ladeado. */
+    transform: rotate(calc(360deg / -8 * var(--i))); /* 8 <li> cada uno con sus grados de giro */
+
+    transition: .5s;
+}
+
+.menu li a:hover {
+    color: #ff1252;
+}
+
+
+.toggle {
+    display: flex; /* Para centrar el + */
+    justify-content: center;
+    align-items: center;
+
+    position: absolute; /* (Ya lo estaba, pero) Lo posiciona en el centro igualmente con los <li> */
+
+    width: 60px;
+    height: 60px;
+
+    background: yellow;
+
+    font-size: 2em;
+
+     
+
+    box-shadow: 0 0 4px rgba(0, 0, 0, .15);
+
+    cursor: pointer;
+
+    z-index: 10000; /* Para visualizar el + por encima del montón de los <li> */
+
+    transition: transform 1.25s;
+}
+
+
+/* Girar el + para convertirlo en una x */
+.menu.active .toggle {
+    
+    transform: rotate(315deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
