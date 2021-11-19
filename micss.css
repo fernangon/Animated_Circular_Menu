@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +34,8 @@ h1 span {
     color: lightsalmon;
 }
 
+
+
 .menu {
     display: flex;
     justify-content: center;
@@ -45,20 +48,14 @@ h1 span {
 }
 
 .menu li {
-    /* 1 (ampliado).bmp --> 2 (ampliado).bmp */
-    position: absolute; /* Agrupa todos los <li> unos encima de otros en un único punto: sobre el <div> toggle del + , viéndose sólo 1 <li> */
-    left: 0; /* Y ahora situa todo el montón de <li> en el borde izquierdo del contenedor menu. */
+   
+    position: absolute;  
+    left: 0;  
    
     list-style: none;
 
-    transform-origin: 100px; /* 3.bmp 4.bmp */ /* Hace que la rotación de cada <li> tenga como punto de apoyo del giro el punto donde está el +. */
-    transform: rotate(0deg) translateX(80px); /*   El rotate(0deg) hay que ponerlo. Si no se pone no hace del todo el mismo efecto. 
-                                                    Esto es porque el ".menu.active li" también tiene un rotate, 
-                                                    y aquí hay que definir qué rotate tiene para el ".menu li" cuando no es "active". 
-                                                */
-                                                /* Con el translateX(80px) oculta todos los <li> debajo del + */
-
-                                                /* 80px */ /* ------------------------------------------------------------------------------------------> (1) */
+    transform-origin: 100px;  
+    transform: rotate(0deg) translateX(80px); 
 
     transition: .5s;
     transition-delay: calc(.1s * var(--i)); /* Para que al mostrarse y esconderse tarde cada uno proporcionalmente un poco más */
@@ -66,7 +63,6 @@ h1 span {
 
 .menu.active li {
     /* Distribuye los <li> de forma circular */
-    /* transform-origin: 100px; */ /* 3.bmp 4.bmp */ /* Hace que la rotación de cada <li> tenga como punto de apoyo del giro el punto donde está el +. */
     transform: rotate(calc(360deg / 8 * var(--i))); /* 8 <li> cada uno con sus grados de giro */
 }
 
@@ -75,7 +71,7 @@ h1 span {
     justify-content: center;
     align-items: center;
 
-    width: 40px; /* (40 = 80 / 2) */ /* <--------------------------------------------------------------------------------------------------------------- (1) */                         
+    width: 40px;                         
     height: 40px;
 
     border-radius: 50%;
@@ -110,7 +106,9 @@ h1 span {
 
     font-size: 2em;
 
-    box-shadow: 0 0 4px rgba(163, 16, 16, 0.15);
+     
+
+    box-shadow: 0 0 4px rgba(0, 0, 0, .15);
 
     cursor: pointer;
 
@@ -122,13 +120,7 @@ h1 span {
 
 /* Girar el + para convertirlo en una x */
 .menu.active .toggle {
-    /* 
-    Si se pone sólo 45deg, se consigue lo mismo: que el + se convierta en x. Pero: como sólo gira 45 grados, entonces el movimiento visual es mínimo.
-    Al ponerle que se mueva 315 grados, se consigue también que el + se convierta en x, 
-    pero a la vez que el movimiento de giro sea mayor: como que da vueltas = sea más visual. 
-
-    De la misma manera, si en lugar de 315 grados, le pongo 630 grados, lo mismo: el + se convierte en x, pero gira más: da más vueltas, antes de convertirse.
-    */
+    
     transform: rotate(315deg);
 }
 
